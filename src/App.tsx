@@ -6,22 +6,7 @@ import Create from './pages/Create';
 import { address } from './types/address';
 
 function App() {
-  const [addressArray, setAddressArray] = useState<address[]>([
-    {
-      id: 1,
-      location: '1234',
-      name: 'John Doe',
-      phone: '555-555-5555',
-      email: 'test@test.com',
-    },
-    {
-      id: 2,
-      location: '2345',
-      name: 'Jane Doe',
-      phone: '555-555-5555',
-      email: 'test@test.com',
-    },
-  ]);
+  const [addressArray, setAddressArray] = useState<address[]>([]);
 
   return (
     <BrowserRouter>
