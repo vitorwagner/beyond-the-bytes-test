@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { UpdateProps } from '../types/addressUpdate';
+import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 
 const Update: React.FC<UpdateProps> = ({ addressArray, setAddressArray }) => {
@@ -9,6 +10,7 @@ const Update: React.FC<UpdateProps> = ({ addressArray, setAddressArray }) => {
     phone: '',
     email: '',
   });
+  const navigate = useNavigate();
 
   function handleClick() {
     const newAddress = {
@@ -20,6 +22,7 @@ const Update: React.FC<UpdateProps> = ({ addressArray, setAddressArray }) => {
     };
 
     setAddressArray([...addressArray, newAddress]);
+    navigate('/');
   }
 
   return (

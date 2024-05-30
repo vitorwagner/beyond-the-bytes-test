@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { UpdateProps } from '../types/addressUpdate';
 import Header from '../components/Header';
 
@@ -11,6 +11,7 @@ const Update: React.FC<UpdateProps> = ({ addressArray, setAddressArray }) => {
     phone: '',
     email: '',
   });
+  const navigate = useNavigate();
   if (!id) return <p>Id não encontrado!</p>;
   const address = addressArray.find((address) => address.id === parseInt(id));
 
@@ -31,6 +32,7 @@ const Update: React.FC<UpdateProps> = ({ addressArray, setAddressArray }) => {
     });
 
     setAddressArray(newAddressArray);
+    navigate('/');
   }
 
   return (
