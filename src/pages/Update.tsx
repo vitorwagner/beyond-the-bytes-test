@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { UpdateProps } from '../types/addressUpdate';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 import AddressForm from '../components/AddressForm';
 
 const Update: React.FC<UpdateProps> = ({ addressArray, setAddressArray }) => {
@@ -19,6 +20,7 @@ const Update: React.FC<UpdateProps> = ({ addressArray, setAddressArray }) => {
         addressArray={addressArray}
         setAddressArray={setAddressArray}
       />
+      <Footer />
     </div>
   );
 };
