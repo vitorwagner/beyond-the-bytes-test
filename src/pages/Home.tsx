@@ -1,13 +1,14 @@
 import React from 'react';
 import Header from '../components/Header';
 import { Link } from 'react-router-dom';
-import { address } from '../types/address';
+import { UpdateProps } from '../types/addressUpdate';
 
-interface HomeProps {
-  addressArray: address[];
-}
 
-const Home: React.FC<HomeProps> = ({ addressArray }) => {
+const Home: React.FC<UpdateProps> = ({ addressArray, setAddressArray }) => {
+  const deleteAddress = (id: number) => {
+    setAddressArray(addressArray.filter((address) => address.id !== id));
+  }
+
   return (
     <div>
       <Header />
@@ -21,6 +22,7 @@ const Home: React.FC<HomeProps> = ({ addressArray }) => {
             <p>{address.phone}</p>
             <p>{address.email}</p>
             <Link to={`/update/${address.id}`}>Update</Link>
+            <button onClick={() => deleteAddress(address.id)}>Delete</button>
           </li>
         ))}
       </ul>

@@ -7,14 +7,34 @@ import { address } from './types/address';
 
 function App() {
   const [addressArray, setAddressArray] = useState<address[]>([
-    { id: 1, location: '1234', name: 'John Doe', phone: '555-555-5555', email: 'test@test.com' },
-    { id: 2, location: '2345', name: 'Jane Doe', phone: '555-555-5555', email: 'test@test.com' },
+    {
+      id: 1,
+      location: '1234',
+      name: 'John Doe',
+      phone: '555-555-5555',
+      email: 'test@test.com',
+    },
+    {
+      id: 2,
+      location: '2345',
+      name: 'Jane Doe',
+      phone: '555-555-5555',
+      email: 'test@test.com',
+    },
   ]);
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home addressArray={addressArray} />} />
+        <Route
+          path="/"
+          element={
+            <Home
+              addressArray={addressArray}
+              setAddressArray={setAddressArray}
+            />
+          }
+        />
         <Route
           path="/update/:id"
           element={
