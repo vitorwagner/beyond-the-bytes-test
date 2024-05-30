@@ -10,7 +10,7 @@ const Home: React.FC<UpdateProps> = ({ addressArray, setAddressArray }) => {
   };
 
   return (
-    <div>
+    <div className="flex flex-col h-screen justify-between">
       <Header />
       <div className="mt-6 border-t border-gray-100 grid justify-items-center bg-slate-100">
         {addressArray.map((address) => (

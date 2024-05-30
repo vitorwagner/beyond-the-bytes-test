@@ -6,7 +6,7 @@ import Footer from '../components/Footer';
 
 const Update: React.FC<UpdateProps> = ({ addressArray, setAddressArray }) => {
   return (
-    <div>
+    <div className="flex flex-col h-screen justify-between">
       <Header />
       <AddressForm
         address={{

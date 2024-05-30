@@ -11,7 +11,7 @@ const Update: React.FC<UpdateProps> = ({ addressArray, setAddressArray }) => {
   const address = addressArray.find((address) => address.id === parseInt(id));
 
   return (
-    <div>
+    <div className="flex flex-col h-screen justify-between">
       <Header />
       <AddressForm
         address={
