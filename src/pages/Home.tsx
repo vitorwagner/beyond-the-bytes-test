@@ -3,7 +3,6 @@ import Header from '../components/Header';
 import { Link } from 'react-router-dom';
 import { UpdateProps } from '../types/addressUpdate';
 
-
 const Home: React.FC<UpdateProps> = ({ addressArray, setAddressArray }) => {
   const deleteAddress = (id: number) => {
     setAddressArray(addressArray.filter((address) => address.id !== id));
@@ -12,7 +11,7 @@ const Home: React.FC<UpdateProps> = ({ addressArray, setAddressArray }) => {
   return (
     <div>
       <Header />
-      <h1>Home</h1>
+      <h1 className="text-3xl font-bold underline">Home</h1>
 
       <ul>
         {addressArray.map((address) => (
