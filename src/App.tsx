@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Home from './pages/Home';
 import Update from './pages/Update';
+import Create from './pages/Create';
 import { address } from './types/address';
 
 function App() {
@@ -18,6 +19,15 @@ function App() {
           path="/update/:id"
           element={
             <Update
+              addressArray={addressArray}
+              setAddressArray={setAddressArray}
+            />
+          }
+        />
+        <Route
+          path="/create"
+          element={
+            <Create
               addressArray={addressArray}
               setAddressArray={setAddressArray}
             />

@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from '../components/Header';
 import { Link } from 'react-router-dom';
 import { address } from '../types/address';
 
@@ -9,7 +10,9 @@ interface HomeProps {
 const Home: React.FC<HomeProps> = ({ addressArray }) => {
   return (
     <div>
+      <Header />
       <h1>Home</h1>
+
       <ul>
         {addressArray.map((address) => (
           <li key={address.id}>

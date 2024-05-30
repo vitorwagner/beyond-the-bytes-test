@@ -1,36 +1,25 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
 import { UpdateProps } from '../types/addressUpdate';
 import Header from '../components/Header';
 
 const Update: React.FC<UpdateProps> = ({ addressArray, setAddressArray }) => {
-  const { id } = useParams();
   const [form, setForm] = useState({
     name: '',
     location: '',
     phone: '',
     email: '',
   });
-  if (!id) return <p>Id não encontrado!</p>;
-  const address = addressArray.find((address) => address.id === parseInt(id));
 
   function handleClick() {
-    if (!id) return;
+    const newAddress = {
+      id: addressArray.length + 1,
+      name: form.name,
+      location: form.location,
+      phone: form.phone,
+      email: form.email,
+    };
 
-    const newAddressArray = addressArray.map((address) => {
-      if (address.id === parseInt(id)) {
-        return {
-          ...address,
-          name: form.name || address.name,
-          location: form.location || address.location,
-          phone: form.phone || address.phone,
-          email: form.email || address.email,
-        };
-      }
-      return address;
-    });
-
-    setAddressArray(newAddressArray);
+    setAddressArray([...addressArray, newAddress]);
   }
 
   return (
@@ -46,25 +35,29 @@ const Update: React.FC<UpdateProps> = ({ addressArray, setAddressArray }) => {
           type="text"
           value={form.name}
           onChange={(e) => setForm({ ...form, name: e.target.value })}
-          placeholder={address?.name}
+          placeholder="Name"
+          required
         />
         <input
           type="text"
           value={form.location}
           onChange={(e) => setForm({ ...form, location: e.target.value })}
-          placeholder={address?.location}
+          placeholder="Location"
+          required
         />
         <input
           type="text"
           value={form.phone}
           onChange={(e) => setForm({ ...form, phone: e.target.value })}
-          placeholder={address?.phone}
+          placeholder="Phone"
+          required
         />
         <input
           type="text"
           value={form.email}
           onChange={(e) => setForm({ ...form, email: e.target.value })}
-          placeholder={address?.email}
+          placeholder="Email"
+          required
         />
         <button type="submit">Update</button>
       </form>
