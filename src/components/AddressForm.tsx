@@ -62,31 +62,59 @@ const AddressForm: React.FC<FormProps> = ({
         address.id ? handleClickUpdate() : handleClickCreate();
       }}
     >
-      <input
-        type="text"
-        value={form.name}
-        onChange={(e) => setForm({ ...form, name: e.target.value })}
-        placeholder={address?.name || 'Name'}
-      />
-      <input
-        type="text"
-        value={form.location}
-        onChange={(e) => setForm({ ...form, location: e.target.value })}
-        placeholder={address?.location || 'Location'}
-      />
-      <input
-        type="text"
-        value={form.phone}
-        onChange={(e) => setForm({ ...form, phone: e.target.value })}
-        placeholder={address?.phone || 'Phone'}
-      />
-      <input
-        type="text"
-        value={form.email}
-        onChange={(e) => setForm({ ...form, email: e.target.value })}
-        placeholder={address?.email || 'Email'}
-      />
-      <button type="submit">{address.id ? 'Update' : 'Create'}</button>
+      <div className="space-y-12 mt-6 border-t border-gray-100 grid justify-items-center bg-slate-100 text-center">
+        <div className="border-b border-gray-900/10 pb-12 bg-gray">
+          <h2 className="mt-10 text-base font-semibold leading-7 text-gray-900">
+            {address.id ? 'Update' : 'Create'} Address
+          </h2>
+          <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8">
+            <div className="sm:col-span-4">
+              <input
+                className="text-center w-full border-2 border-gray-900/10 rounded-md p-2"
+                type="text"
+                value={form.name}
+                onChange={(e) => setForm({ ...form, name: e.target.value })}
+                placeholder={address?.name || 'Name'}
+              />
+            </div>
+            <div className="sm:col-span-4">
+              <input
+                className="text-center w-full border-2 border-gray-900/10 rounded-md p-2 align-center"
+                type="text"
+                value={form.location}
+                onChange={(e) => setForm({ ...form, location: e.target.value })}
+                placeholder={address?.location || 'Location'}
+              />
+            </div>
+            <div className="sm:col-span-4">
+              <input
+                className="text-center w-full border-2 border-gray-900/10 rounded-md p-2 align-center"
+                type="text"
+                value={form.phone}
+                onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                placeholder={address?.phone || 'Phone'}
+              />
+            </div>
+            <div className="sm:col-span-4">
+              <input
+                className="text-center w-full border-2 border-gray-900/10 rounded-md p-2 align-center"
+                type="text"
+                value={form.email}
+                onChange={(e) => setForm({ ...form, email: e.target.value })}
+                placeholder={address?.email || 'Email'}
+              />
+            </div>
+            <div className="sm:col-span-4">
+              <button
+                type="submit"
+                className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+              >
+                {address.id ? 'Update' : 'Create'}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </form>
   );
 };
